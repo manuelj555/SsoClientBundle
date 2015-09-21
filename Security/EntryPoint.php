@@ -34,23 +34,20 @@ class EntryPoint implements AuthenticationEntryPointInterface
      */
     private $urlGenerator;
 
-    private $loginSsoUrl;
-    private $loginFormUrl;
+    private $loginUrl;
 
     /**
      * EntryPoint constructor.
      *
      * @param HttpUtils             $httpUtils
      * @param UrlGeneratorInterface $urlGenerator
-     * @param                       $loginSsoUrl
-     * @param                       $loginFormUrl
+     * @param                       $loginUrl
      */
-    public function __construct(HttpUtils $httpUtils, UrlGeneratorInterface $urlGenerator, $loginSsoUrl, $loginFormUrl)
+    public function __construct(HttpUtils $httpUtils, UrlGeneratorInterface $urlGenerator, $loginUrl)
     {
         $this->httpUtils = $httpUtils;
         $this->urlGenerator = $urlGenerator;
-        $this->loginSsoUrl = $loginSsoUrl;
-        $this->loginFormUrl = $loginFormUrl;
+        $this->loginUrl = $loginUrl;
     }
 
     /**
@@ -64,7 +61,7 @@ class EntryPoint implements AuthenticationEntryPointInterface
     public function start(Request $request, AuthenticationException $authException = null)
     {
         if($this->httpUtils->checkRequestPath($request, 'ku_sso_client_otp_validate')){
-            // Si estamos en la página de chequeo, no vamos a mandar a login nuevamente
+            // Si estamos en la pgina de chequeo, no vamos a mandar a login nuevamente
             throw new ServiceUnavailableHttpException(null, 'No se pudo conectar');
         }
 
@@ -73,7 +70,7 @@ class EntryPoint implements AuthenticationEntryPointInterface
             $targetPath = $request->getUri();
 
             return new RedirectResponse(
-                $this->loginSsoUrl . '?_target_path=' . ($validationPath . '?_target_path=' . rawurlencode($targetPath))
+                $this->loginUrl . '?_target_path=' . ($validationPath . '?_target_path=' . rawurlencode($targetPath))
             );
         }
     }

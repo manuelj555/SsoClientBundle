@@ -15,7 +15,6 @@ services:
             - @security.http_utils
             - @router
             - null
-            - null
 
     ku_sso_client.uri_signer:
         class: Symfony\Component\HttpKernel\UriSigner

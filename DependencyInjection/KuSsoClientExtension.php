@@ -26,8 +26,7 @@ class KuSsoClientExtension extends Extension
         $loader->load('services.yml');
 
         $container->findDefinition('ku_sso_client.security.entry_point')
-            ->replaceArgument(2, $config['sso']['login'])
-            ->replaceArgument(3, $config['server_login_url']);
+            ->replaceArgument(2, $config['sso']['login']);
 
         $container->findDefinition('ku_sso_client.security.authentication.guzzle_client')
             ->replaceArgument(0, array(

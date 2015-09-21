@@ -23,7 +23,6 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('api_key')->isRequired()->cannotBeEmpty()->end()
-                ->scalarNode('server_login_url')->isRequired()->cannotBeEmpty()->end()
                 ->arrayNode('sso')
                     ->children()
                         ->scalarNode('login')->isRequired()->cannotBeEmpty()->end()
