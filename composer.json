@@ -6,7 +6,7 @@
     "guzzlehttp/guzzle": "~5.0"
   },
   "autoload": {
-    "psr-4": {"Ku\\\\SsoClientBundle\\": ""}
+    "psr-4": {"Ku\\SsoClientBundle\\": ""}
   },
   "extra": {
     "branch-alias": {
