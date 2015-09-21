@@ -46,9 +46,9 @@ firewalls:
     # ...
     main:
         pattern: ^/
-            entry_point: ku_sso_client.security.entry_point
-            simple_preauth:
-                authenticator: ku_sso_client.security.otp_authenticator
+        entry_point: ku_sso_client.security.entry_point
+        simple_preauth:
+            authenticator: ku_sso_client.security.otp_authenticator
 ```
 
 Con esto la aplicación estará asegurada y cuando un usuario intente acceder, se verificará que haya iniciado sesión en la aplicación principal (servidor), y se creará el token de autenticación en la aplicación cliente.
