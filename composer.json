@@ -2,7 +2,7 @@
   "name": "manuelj555/sso-client-bundle",
   "require": {
     "php": ">=5.3.3",
-    "symfony/framework-bundle": "~2.5",
+    "symfony/framework-bundle": "~2.6",
     "guzzlehttp/guzzle": "~5.0"
   },
   "autoload": {
