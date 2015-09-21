@@ -1,0 +1,7 @@
+ku_sso_client_otp_validate:
+    path:     /otp/validate
+    defaults: { _controller: KuSsoClientBundle:Default:otpValidate }
+
+ku_sso_client_homepage:
+    path:     /
+    defaults: { _controller: KuSsoClientBundle:Default:index }

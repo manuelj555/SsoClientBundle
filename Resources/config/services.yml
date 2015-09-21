@@ -1,0 +1,34 @@
+services:
+    ku_sso_client.security.otp_authenticator:
+        class: Ku\SsoClientBundle\Security\OneTimePasswordAuthenticator
+        public: false
+        arguments:
+            - @security.http_utils
+            - @ku_sso_client.uri_signer
+            - @ku_sso_client.security.authentication.guzzle_client
+            - @ku_sso_client.security.decrypter
+
+    ku_sso_client.security.entry_point:
+        class: Ku\SsoClientBundle\Security\EntryPoint
+        public: false
+        arguments:
+            - @security.http_utils
+            - @router
+            - null
+            - null
+
+    ku_sso_client.uri_signer:
+        class: Symfony\Component\HttpKernel\UriSigner
+        arguments:
+            - '12345'
+
+    ku_sso_client.security.authentication.guzzle_client:
+        class: GuzzleHttp\Client
+        arguments:
+            - null
+
+    ku_sso_client.security.decrypter:
+        class: Ku\SsoClientBundle\Security\UserDataDecrypter
+        public: false
+        arguments:
+            - null
