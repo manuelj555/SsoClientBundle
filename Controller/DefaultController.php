@@ -23,6 +23,6 @@ class DefaultController extends Controller
 
     public function otpValidateAction(Request $request)
     {
-
+        throw new \BadMethodCallException('Esta función no debería ejecutarse');
     }
 }
